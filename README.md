@@ -1,2 +1,2 @@
 # TTScoreBoard
-Primary small tool for TT game
+Small web display tool for TT Game
