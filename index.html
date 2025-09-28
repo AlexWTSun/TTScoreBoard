@@ -5,4 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styleSheet.css">
     <header> Table Tennis Tournament 2025</header>
+    <body>
+        <button id="StartSetupButton", class="bigButton", onclick="document.getElementById('PlayerNameInput').style.display='flex'">New Game</button> 
+        <script src="src/team_info.js"></script>
+        <script src="src/score_board.js"></script>
+
+<!--Main Score Display Block-->
+        <div id="MainScoreDisplayBlockBG", class="mainScoreDisplayBlockBG">
+            <p> Score Display Section</p>
+        </div>
+
+<!--Score Record Block-->
+        <div id="ScoreRecordBlockBG", class="bg-scoreRecordBlock">
+            <h3 style="margin:auto; padding: 0.5%"> Score Board</h3>
+            <div id="ScoreRecordBlock", class="main-scoreRecordBlock">
+                <div id="leftScoreRecord">
+                    <p style="font-size: 16px;">left sec</p>
+                </div>
+                <div id="scoreRecordLabel", style="width: 10%; text-align: center; background-color: azure;">
+                    <br><br>
+                    <p class="scoreRecorderText"> Double 1 </p>
+                    <p class="scoreRecorderText"> Double 2</p>
+                    <p class="scoreRecorderText"> Double 3</p>
+                    <p class="scoreRecorderText"> Single P1-1</p>
+                    <p class="scoreRecorderText"> Single P1-2</p>
+                    <p class="scoreRecorderText"> Single P2-1</p>
+                    <p class="scoreRecorderText"> Single P2-2</p>
+                </div>
+                <div id="rightScoreRecord">
+                    <p> right sec</p>
+                </div>
+            </div>
+        </div>
+
+<!--Name Input Block-->
+        <div id="PlayerNameInput", class="nameInputBlock">
+            <div style="margin-top: 4%; margin-left: 4%; margin-right: 4%; text-align: center;">
+                <p style="font-size: 25px; padding: 0%; margin:0.1%">Team 1</p>
+                <p class="nameInputLabel">Player 1</p>
+                <input class="inputText" , id="t1p1" , type="text" , placeholder="Name">
+                <p class="nameInputLabel">Player 2</p>
+                <input class="inputText" , id="t1p2" , type="text" , placeholder="Name">
+                <p style="font-size: 25px; padding: 0%; margin:0.1%; margin-top: 15px;">Team 2</p>
+                <p class="nameInputLabel">Player 1</p>
+                <input class="inputText" , id="t2p1" , type="text" , placeholder="Name">
+                <p class="nameInputLabel">Player 2</p>
+                <input class="inputText" , id="t2p2" , type="text" , placeholder="Name">
+                <br>
+                <button id="UpdateNameButton", class="bigButton", style="margin-top: 25px;", onclick="set_team_member_name()">Finish Setup</button>
+            </div>
+        </div>
+    </body>
 </html>
