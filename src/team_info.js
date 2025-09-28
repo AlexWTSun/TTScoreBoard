@@ -24,6 +24,12 @@ function set_team_member_name()
     let left_score_board_section = document.getElementById("leftScoreRecord");
     let right_score_board_section = document.getElementById("rightScoreRecord");
 
+    while(left_score_board_section.firstChild)
+    {
+        left_score_board_section.removeChild(left_score_board_section.firstChild);
+        right_score_board_section.removeChild(right_score_board_section.firstChild);
+    }
+
     let team1_name_record_disp = document.createElement("p");
     team1_name_record_disp.id="ScoreRecordTeam1Name";
     team1_name_record_disp.innerText=team1.player1_name + "/" + team1.player2_name;
@@ -52,7 +58,8 @@ function set_team_member_name()
         team2_score.innerText = team2.score[row_idx-1];
         right_score_board_section.appendChild(team2_score);
     }
-
+    game_controller = new game();
+    
 }
 
 

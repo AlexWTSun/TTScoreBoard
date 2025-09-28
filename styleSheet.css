@@ -10,6 +10,7 @@ header
     font-size: 35px;
     color: white;
 }
+* { box-sizing: border-box; }
 .bigButton
 {
     display:block;
@@ -20,6 +21,16 @@ header
     background-color: greenyellow;
     margin-left: auto;
     margin-right: auto;
+}
+.smallButtomn
+{
+    display: block;
+    height: 20px;
+    width: 50px;
+    font-size: 14px;
+    text-align: center;
+    background-color: gray;
+    margin: 0 auto;
 }
 .nameInputBlock
 {
@@ -50,14 +61,6 @@ header
     padding: 1%;
     font-size: 20px;
 }
-.mainScoreDisplayBlockBG
-{
-    border: none;
-    height: 50vh;
-    display: flex;
-    background-color: yellowgreen;
-    z-index: 2;
-}
 .bg-scoreRecordBlock
 {
     height: 25vh;
@@ -73,6 +76,7 @@ header
     background-color: yellow;
     width: 80%;
     height: 90%;
+    align-items: center;
 }
 .scoreRecorderText
 {
@@ -89,9 +93,69 @@ header
 }
 #rightScoreRecord
 {
-    background-color: rgb(60, 60, 34);
+    background-color: rgb(180,180,20);
     padding-left: 0.5%;
     width: 45%;
     text-align: left;
 }
+.mainScoreDisplayBlockBG
+{
+    border: none;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+    z-index: 2;
+    color: rgb(208, 208, 208); /*For main text*/
+}
+.scoreDisplayTextColor
+{
+    color: rgb(208, 208, 208);
+}
+.main-GameScoreDisplay
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    width: 80%;
+    height: 90%;
+    background-color: yellowgreen;
+}
+.main-ScoreDisplayNameBlock
+{
+    width: 45%; 
+    height: 15%; 
+    padding: 1%; 
+    margin: 0%;
+}
+.main-ScoreDisplayScoreBlock
+{
+    width: 45%; 
+    height: 60%; 
+    padding: 1%; 
+    margin: 0%;
+    align-items: center;
+    display: flex;
+}
+.main-ScoreDisplayButtonBlock
+{
+    width: 45%; 
+    height: 15%; 
+    padding: 1%; 
+    margin: 0%;
+}
+.scoreDisplayNameFont
+{
+    font-size: 40px;
+    padding: 0%;
+    margin: 0%;
+}
+.scoreDisplayScoreFont
+{
+    font-size: 150px;
+    padding: 0%;
+    margin: 0%;
+}
+
 

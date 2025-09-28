@@ -6,13 +6,63 @@
     <link rel="stylesheet" href="styleSheet.css">
     <header> Table Tennis Tournament 2025</header>
     <body>
-        <button id="StartSetupButton", class="bigButton", onclick="document.getElementById('PlayerNameInput').style.display='flex'">New Game</button> 
+        <button id="StartSetupButton", class="bigButton", onclick="document.getElementById('PlayerNameInput').style.display='block'">New Game</button> 
         <script src="src/team_info.js"></script>
         <script src="src/score_board.js"></script>
 
 <!--Main Score Display Block-->
         <div id="MainScoreDisplayBlockBG", class="mainScoreDisplayBlockBG">
-            <p> Score Display Section</p>
+            <label for="Match Selection"></label>
+            <select name="Match Selection" id="matchSelection", onchange="updateGameIndex()">
+                <option value="1">Double 1</option>
+                <option value="2">Double 2</option>
+                <option value="3">Double 3</option>
+                <option value="4">Player 1 Single 1</option>
+                <option value="5">Player 1 Single 2</option>
+                <option value="6">Player 2 Single 1</option>
+                <option value="7">Player 2 Single 2</option>
+            </select>
+            <div id="MainScoreDisplay", class="main-GameScoreDisplay">
+                <div id = "leftTeamPlayerName", class = "main-ScoreDisplayNameBlock", style="text-align: right;">
+                    <p class="scoreDisplayNameFont">left name display</p>
+                </div>
+                <div style="width: 10%; height: 15%; background-color: azure;">
+                    <!--place holder-->
+                </div>
+                <div id = "rightTeamPlayerName", class = "main-ScoreDisplayNameBlock", style="text-align: left;">
+                    <p class="scoreDisplayNameFont">right name display</p>
+                </div>
+                <div id = "leftTeamScore", class = "main-ScoreDisplayScoreBlock">
+                    <div style="width:60%; background-color: aqua;"><p>left arrow</p></div>
+                    <div style="width:40%; text-align: right;"><p class="scoreDisplayScoreFont">lf</p></div>
+                </div>
+                <div class = "main-ScoreDisplayScoreBlock", style="width: 10%;">
+                    <!--Just A Colon-->
+                    <div style="width: 100%; text-align: center;"><p class="scoreDisplayScoreFont">:</p></div>
+                </div>
+                <div id = "rightTeamScore", class = "main-ScoreDisplayScoreBlock", style="text-align: left;">
+                    <div style="width:40%; text-align: left;"><p class="scoreDisplayScoreFont">rt</p></div>
+                    <div style="width:60%; background-color: aqua;"> <p>right arrow</p></div>
+                </div>
+                <div style="width: 45%; height: 15%; padding: 2%; display: flex; justify-content: right; align-items: center;">
+                    <!--left buttons-->
+                    <div>
+                        <button id="leftAddButton", class="smallButton"> Add </button>
+                        <button id="leftMinusButton", class="smallButton"> Subtract</button>
+                    </div>
+                </div>
+                <div style="width: 10%; height: 15%; background-color: aqua; padding: 0%; margin: 0%">
+                    <!--place holder-->
+                </div>
+                <div style="width: 45%; height: 15%; padding: 2%;">
+                    <!--right buttons-->
+                    <div>
+                        <button id="rightAddButton", class="smallButton"> Add </button>
+                        <button id="rightMinusButton", class="smallButton"> Subtract</button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
 <!--Score Record Block-->
