@@ -3,9 +3,7 @@ class Team
     constructor(){
         this.player1_name = "Name1";
         this.player2_name = "Name2";
-        this.double_score = [0, 0, 0];
-        this.player1_score = [0, 0];
-        this.player2_score = [0, 0];
+        this.score = [0, 0, 0, 0, 0, 0, 0]; // Order: doublex3, player1 x2 , player2 x2
     }
 }
 
@@ -23,7 +21,38 @@ function set_team_member_name()
     team2.player2_name = document.getElementById("t2p2").value;
     team_setup_section.style.display='none';
 
-    let score_board_label_section = document.getElementById("scoreRecordLabel");
+    let left_score_board_section = document.getElementById("leftScoreRecord");
+    let right_score_board_section = document.getElementById("rightScoreRecord");
+
+    let team1_name_record_disp = document.createElement("p");
+    team1_name_record_disp.id="ScoreRecordTeam1Name";
+    team1_name_record_disp.innerText=team1.player1_name + "/" + team1.player2_name;
+    team1_name_record_disp.classList.add("scoreRecorderText");
+    team1_name_record_disp.style.margin = "1em";
+    left_score_board_section.appendChild(team1_name_record_disp);
+
+    let team2_name_record_disp = document.createElement("p");
+    team2_name_record_disp.id="ScoreRecordTeam1Name";
+    team2_name_record_disp.innerText=team2.player1_name + "/" + team2.player2_name;
+    team2_name_record_disp.classList.add("scoreRecorderText");
+    team2_name_record_disp.style.margin = "1em";
+    right_score_board_section.appendChild(team2_name_record_disp);
+
+    for(let row_idx = 1; row_idx < 8; row_idx++)
+    {
+        let team1_score = document.createElement("p");
+        team1_score.id = "ScoreRecordT1G"+row_idx;
+        team1_score.classList.add("scoreRecorderText");
+        team1_score.innerText = team1.score[row_idx-1];
+        left_score_board_section.appendChild(team1_score);
+
+        let team2_score = document.createElement("p");
+        team2_score.id = "ScoreRecordT2G"+row_idx;
+        team2_score.classList.add("scoreRecorderText");
+        team2_score.innerText = team2.score[row_idx-1];
+        right_score_board_section.appendChild(team2_score);
+    }
+
 }
 
 

@@ -25,7 +25,7 @@ header
 {
     /*modal*/
     position: fixed;
-    display: none; /*block*/
+    display: block; /*block*/
     height: 50vh;
     width: 55%;
     justify-content: center;
@@ -74,6 +74,12 @@ header
     width: 80%;
     height: 90%;
 }
+.scoreRecorderText
+{
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+}
 #leftScoreRecord
 {
     background-color: rgb(230, 230, 83);
@@ -87,11 +93,5 @@ header
     padding-left: 0.5%;
     width: 45%;
     text-align: left;
-}
-.scoreRecorderText
-{
-    font-size: 16px;
-    padding: 0px;
-    margin: 0px;
 }
 
