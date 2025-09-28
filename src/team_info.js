@@ -30,16 +30,18 @@ function set_team_member_name()
         right_score_board_section.removeChild(right_score_board_section.firstChild);
     }
 
+    let team1_name = team1.player1_name + "/" + team1.player2_name;
     let team1_name_record_disp = document.createElement("p");
     team1_name_record_disp.id="ScoreRecordTeam1Name";
-    team1_name_record_disp.innerText=team1.player1_name + "/" + team1.player2_name;
+    team1_name_record_disp.innerText=team1_name;
     team1_name_record_disp.classList.add("scoreRecorderText");
     team1_name_record_disp.style.margin = "1em";
     left_score_board_section.appendChild(team1_name_record_disp);
 
+    let team2_name = team2.player1_name + "/" + team2.player2_name;
     let team2_name_record_disp = document.createElement("p");
     team2_name_record_disp.id="ScoreRecordTeam1Name";
-    team2_name_record_disp.innerText=team2.player1_name + "/" + team2.player2_name;
+    team2_name_record_disp.innerText=team2_name;
     team2_name_record_disp.classList.add("scoreRecorderText");
     team2_name_record_disp.style.margin = "1em";
     right_score_board_section.appendChild(team2_name_record_disp);
@@ -59,7 +61,14 @@ function set_team_member_name()
         right_score_board_section.appendChild(team2_score);
     }
     game_controller = new game();
-    
+
+    let left_team_name_text = document.getElementById("leftTeamName");
+    let right_team_name_text = document.getElementById("rightTeamName");
+    left_team_name_text.innerText=game_controller.left_team.player1_name + " / " + game_controller.left_team.player2_name;
+    right_team_name_text.innerText=game_controller.right_team.player1_name + " / " + game_controller.right_team.player2_name;
+
+    game_controller.game_index = 0;
+    game_controller.ball_counts = 0;
 }
 
 
