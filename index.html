@@ -27,10 +27,10 @@
                     <p class="scoreDisplayNameFont", id="leftTeamName">&nbsp;/&nbsp;</p>
                 </div>
                 <div style="width: 10%; height: 15%; display: flex; align-items: center; justify-content: center;">
-                    <div style="display: flex; align-items: center;">
+                    <div>
                         <button id="flipSideButton", class="smallButton", onclick="flipSide()"> Flip Side </button>
                         <button id="changeServe", class="smallButton", onclick="changeServe()"> Change Serve</button>
-                        <button id="createMirrowPage", class="smallButton"> Player View</button>
+                        <button id="openPlayerView", class="smallButton", onclick="openPlayerView()"> Player View</button>
                     </div>
                 </div>
                 <div id = "rightTeamPlayerName", class = "main-ScoreDisplayNameBlock", style="text-align: left;">
@@ -55,8 +55,11 @@
                         <button id="leftMinusButton", class="smallButton", onclick="addPointToLeft(-1)"> Subtract</button>
                     </div>
                 </div>
-                <div style="width: 10%; height: 15%; background-color: aqua; padding: 0%; margin: 0%">
+                <div style="width: 10%; height: 15%; padding: 0%; margin: 0%; display: flex; align-items: center; justify-content: center;">
                     <!--place holder-->
+                    <div>
+                        <button id="nextGameButton", class="smallButton", style="display: none;", onclick="startNextGame()">Next Game</button>
+                    </div>
                 </div>
                 <div style="width: 45%; height: 15%; padding: 2%;">
                     <!--right buttons-->

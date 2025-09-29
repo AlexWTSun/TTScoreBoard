@@ -20,6 +20,8 @@ function set_team_member_name()
     team2.player1_name = document.getElementById("t2p1").value;
     team2.player2_name = document.getElementById("t2p2").value;
     team_setup_section.style.display='none';
+    team1.score = [0,0,0,0,0,0,0];
+    team2.score = [0,0,0,0,0,0,0];
 
     let left_score_board_section = document.getElementById("leftScoreRecord");
     let right_score_board_section = document.getElementById("rightScoreRecord");
@@ -69,6 +71,17 @@ function set_team_member_name()
 
     game_controller.game_index = 0;
     game_controller.ball_counts = 0;
+    document.getElementById("rightServeMarker").style.display = "none";
+    document.getElementById("leftServeMarker").style.display = "inline";
+    let lf = game_controller.left_team.score[game_controller.game_index];
+    let rt = game_controller.right_team.score[game_controller.game_index]
+    document.getElementById("leftTeamScore").innerText=lf;
+    document.getElementById("rightTeamScore").innerText=rt;
+
+    if(game_controller.player_window == 1)
+    {
+        updatePlayerWindow();
+    }
 }
 
 
