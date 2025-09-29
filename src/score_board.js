@@ -14,7 +14,7 @@ class game
 }
 
 let game_controller = new game();
-let player_view_window = "";
+let player_view_window = null;
 
 function updateGameIndex()
 {
@@ -43,7 +43,7 @@ function updateGameIndex()
     document.getElementById("leftTeamScore").innerText=lf;
     document.getElementById("rightTeamScore").innerText=rt;
     game_controller.ball_counts = lf+rt;
-    if (game_controller.player_window == 1)
+    if(player_view_window && !player_view_window.closed)
     {
         updatePlayerWindow();
     }
@@ -61,9 +61,9 @@ function addPointToLeft(point)
         if(score > 10 && (score-game_controller.right_team.score[game_controller.game_index])>=2)
         {
             document.getElementById("leftTeamPlayerName").style.backgroundColor="green";
-            if(game_controller.player_window == 1)
+            if(player_view_window && !player_view_window.closed)
             {
-                player_view_window.document.getElementById("rightTeamPlayerName").style.backgroundColor="green";
+                player_view_window.document.getElementById("playerview-rightTeamPlayerName").style.backgroundColor="green";
             }
             game_controller.game_completion_status[game_controller.game_index] = 1;
             document.getElementById("nextGameButton").style.display="block";
@@ -84,7 +84,7 @@ function addPointToLeft(point)
         changeServe();
     }
 
-    if(game_controller.player_window == 1)
+    if(player_view_window && !player_view_window.closed)
     {
         updatePlayerWindowScore();
         updatePlayerWindowServe();
@@ -103,9 +103,9 @@ function addPointToRight(point)
         if(score > 10 && (score-game_controller.left_team.score[game_controller.game_index])>=2)
         {
             document.getElementById("rightTeamPlayerName").style.backgroundColor="green";
-            if(game_controller.player_window == 1)
+            if(player_view_window && !player_view_window.closed)
             {
-                player_view_window.document.getElementById("rightTeamPlayerName").style.backgroundColor = "green";
+                player_view_window.document.getElementById("playerview-leftTeamPlayerName").style.backgroundColor = "green";
             }
             game_controller.game_completion_status[game_controller.game_index] = 1;
             document.getElementById("nextGameButton").style.display="block";
@@ -125,7 +125,7 @@ function addPointToRight(point)
         changeServe();
     }
 
-    if(game_controller.player_window == 1)
+    if(player_view_window && !player_view_window.closed)
     {
         updatePlayerWindowScore();
         updatePlayerWindowServe();
@@ -154,7 +154,7 @@ function changeServe()
         document.getElementById("leftServeMarker").style.display="inline";
         document.getElementById("rightServeMarker").style.display="none";
     }
-    if(game_controller.player_window == 1)
+    if(player_view_window && !player_view_window.closed)
     {
         updatePlayerWindowScore();
         updatePlayerWindowServe();
@@ -183,10 +183,10 @@ function startNextGame()
     document.getElementById("rightServeMarker").style.display = "none";
     document.getElementById("leftServeMarker").style.display = "inline";
 
-    if (game_controller.player_window == 1) 
+    if(player_view_window && !player_view_window.closed)
     {
-        player_view_window.document.getElementById("rightTeamPlayerName").style.backgroundColor = "transparent";
-        player_view_window.document.getElementById("leftTeamPlayerName").style.backgroundColor = "transparent";
+        player_view_window.document.getElementById("playerview-rightTeamPlayerName").style.backgroundColor = "transparent";
+        player_view_window.document.getElementById("playerview-leftTeamPlayerName").style.backgroundColor = "transparent";
         updatePlayerWindow();
     }
 }
@@ -194,16 +194,19 @@ function startNextGame()
 function openPlayerView()
 {
     const features = "width=${screen.width},height=${screen.height}";
-    player_view_window = window.open("./score_display.html", "_blank", features);
+    player_view_window = window.open("./score_display.html", "player_view_window", features);
     game_controller.player_window = 1;
+    player_view_window.onload = function(){
+        player_view_window.document.getElementById("playerview-leftTeamPlayerName").style.backgroundColor="green";
+    };
     updatePlayerWindow();
 }
 
 function updatePlayerWindow()
 {
     // Left display on right; right display on left
-    let left_team_name_text = player_view_window.document.getElementById("leftTeamName");
-    let right_team_name_text = player_view_window.document.getElementById("rightTeamName");
+    let left_team_name_text = player_view_window.document.getElementById("playerview-leftTeamName");
+    let right_team_name_text = player_view_window.document.getElementById("playerview-rightTeamName");
     if (game_controller.game_index == 3 || game_controller.game_index == 4)
     {
         left_team_name_text.innerText = game_controller.right_team.player1_name;
@@ -224,22 +227,24 @@ function updatePlayerWindow()
 
 function updatePlayerWindowScore()
 {
-    let left_team_score = player_view_window.document.getElementById("leftTeamScore");
-    let right_team_score = player_view_window.document.getElementById("rightTeamScore");
+    console.log("updating player window score");
+    let left_team_score = player_view_window.document.getElementById("playerview-leftTeamScore");
+    let right_team_score = player_view_window.document.getElementById("playerview-rightTeamScore");
     left_team_score.innerText = game_controller.right_team.score[game_controller.game_index];
     right_team_score.innerText = game_controller.left_team.score[game_controller.game_index];
+    console.log("Done updating player window score");
 }
 
 function updatePlayerWindowServe()
 {
     if (game_controller.left_serve == 1) 
     {
-        player_view_window.document.getElementById("leftServeMarker").style.display = "none";
-        player_view_window.document.getElementById("rightServeMarker").style.display = "inline";
+        player_view_window.document.getElementById("playerview-leftServeMarker").style.display = "none";
+        player_view_window.document.getElementById("playerview-rightServeMarker").style.display = "inline";
     }
     else
     {
-        player_view_window.document.getElementById("leftServeMarker").style.display="inline";
-        player_view_window.document.getElementById("rightServeMarker").style.display = "none";
+        player_view_window.document.getElementById("playerview-leftServeMarker").style.display="inline";
+        player_view_window.document.getElementById("playerview-rightServeMarker").style.display = "none";
     }
 }
