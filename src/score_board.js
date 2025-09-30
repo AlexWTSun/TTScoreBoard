@@ -184,13 +184,9 @@ function startNextGame()
 function openPlayerView()
 {
     const features = "width=${screen.width},height=${screen.height}";
-    player_view_window = window.open("./score_display.html", "player_view_window", features);
-    while(player_view_window.document.readyState != 'complete')
-    {
-        setTimeout(function(){}, 50);
-    }
+    let player_view_window = window.open("./score_display.html", "player_view_window", features);
     game_controller.player_window = 1;
-
+    
     BroadcastScore();
     BroadcastTeamName();
 }
