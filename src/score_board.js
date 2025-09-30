@@ -149,6 +149,10 @@ function changeServe()
         document.getElementById("leftServeMarker").style.display="inline";
         document.getElementById("rightServeMarker").style.display="none";
     }
+    if(game_controller.player_window == 1)
+    {
+        BroadcastScore();
+    }
 }
 
 function startNextGame()
@@ -160,6 +164,8 @@ function startNextGame()
 
     game_controller.game_index += 1;
     game_id += 1;
+    game_controller.game_index = Math.min(game_controller.game_index, 6);
+    game_id = Math.min(game_id, 7);
     let match_selection = document.getElementById("matchSelection");
     match_selection.value = game_id.toString();
     updateGameIndex();
@@ -186,7 +192,12 @@ function openPlayerView()
     const features = "width=${screen.width},height=${screen.height}";
     let player_view_window = window.open("./score_display.html", "player_view_window", features);
     game_controller.player_window = 1;
-    
+
+    refreshPlayerView();
+}
+
+function refreshPlayerView()
+{
     BroadcastScore();
     BroadcastTeamName();
 }
