@@ -46,6 +46,6 @@ function setWinningTeam(winning_status)
         document.getElementById("playerview-rightTeamPlayerName").style.backgroundColor = "green";
     }
     else if (winning_status == 1) {
-        document.getElementById("playerview-leftTeamPlayerName").style.backgroundColor = "transparent";
+        document.getElementById("playerview-leftTeamPlayerName").style.backgroundColor = "green";
     }
 }

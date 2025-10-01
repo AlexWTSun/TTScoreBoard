@@ -78,10 +78,13 @@ function set_team_member_name()
     let rt = game_controller.right_team.score[game_controller.game_index]
     document.getElementById("leftTeamScore").innerText=lf;
     document.getElementById("rightTeamScore").innerText=rt;
+    document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
+    document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
 
     if(game_controller.player_window == 1)
     {
         BroadcastScore();
+        BroadcastTeamName();
     }
 }
 
