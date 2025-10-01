@@ -43,6 +43,24 @@ function updateGameIndex()
     document.getElementById("leftTeamScore").innerText=lf;
     document.getElementById("rightTeamScore").innerText=rt;
     game_controller.ball_counts = lf+rt;
+
+    if(game_controller.game_completion_status[game_controller.game_index] == 1)
+    {
+        if(game_controller.left_team.score[game_controller.game_index] > game_controller.right_team.score[game_controller.game_index])
+        {
+            document.getElementById("leftTeamPlayerName").style.backgroundColor="green"; // reset the completetion status
+        }
+        else
+        {
+            document.getElementById("rightTeamPlayerName").style.backgroundColor="green"; // reset the completetion status
+        }
+    }
+    else
+    {
+        document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
+        document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
+    }
+
     if(game_controller.player_window == 1)
     {
         BroadcastScore();
