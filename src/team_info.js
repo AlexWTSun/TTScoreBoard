@@ -68,7 +68,6 @@ function set_team_member_name()
     document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
     document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
 
-    console.log("player window: ", game_controller.player_window);
     if(game_controller.player_window == 1)
     {
         BroadcastScore();

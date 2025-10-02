@@ -2,7 +2,6 @@ function updateGameIndex()
 {
     let match_selection = document.getElementById("matchSelection");
     game_controller.game_index = parseInt(match_selection.options[match_selection.selectedIndex].value, 10) - 1;
-    console.log("game index",game_controller.game_index);
     let left_team_name_text = document.getElementById("leftTeamName");
     let right_team_name_text = document.getElementById("rightTeamName");
     if(game_controller.game_index == 3 || game_controller.game_index == 4)
