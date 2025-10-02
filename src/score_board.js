@@ -32,17 +32,20 @@ function updateGameIndex()
         {
             document.getElementById("leftTeamPlayerName").style.backgroundColor="green"; // reset the completetion status
             document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
+            game_controller.winning_status[game_controller.game_index] = -1; // update this because the left and right display may have changed
         }
         else
         {
             document.getElementById("rightTeamPlayerName").style.backgroundColor="green"; // reset the completetion status
             document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
+            game_controller.winning_status[game_controller.game_index] = 1; // update this because the left and right display may have changed
         }
     }
     else
     {
         document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
         document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
+        // No need to reset winning status because it has to be 0.
     }
 
     if(game_controller.player_window == 1)
