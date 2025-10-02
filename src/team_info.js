@@ -1,17 +1,3 @@
-class Team
-{
-    constructor(){
-        this.player1_name = "Name1";
-        this.player2_name = "Name2";
-        this.score = [0, 0, 0, 0, 0, 0, 0]; // Order: doublex3, player1 x2 , player2 x2
-    }
-}
-
-var team1 = new Team();
-var team2 = new Team();
-let team1_names="";
-let team2_names="";
-
 function set_team_member_name()
 {
     let team_setup_section = document.getElementById('PlayerNameInput');
@@ -62,7 +48,9 @@ function set_team_member_name()
         team2_score.innerText = team2.score[row_idx-1];
         right_score_board_section.appendChild(team2_score);
     }
+    let player_window_status = game_controller.player_window;
     game_controller = new game();
+    game_controller.player_window = player_window_status;
 
     let left_team_name_text = document.getElementById("leftTeamName");
     let right_team_name_text = document.getElementById("rightTeamName");

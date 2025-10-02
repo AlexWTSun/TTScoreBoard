@@ -1,21 +1,3 @@
-class game
-{
-    constructor()
-    {
-        this.game_started = false;
-        this.game_completion_status = [0, 0, 0, 0, 0, 0, 0]; // Marker for if game completed
-        this.left_team = team1;
-        this.right_team = team2;
-        this.game_index = 0;
-        this.ball_counts = 0;
-        this.left_serve = 1;
-        this.player_window = 0;
-        this.winning_status = [0, 0, 0, 0, 0, 0, 0]; // -1: left win; 1: right win; 0: on-going
-    }
-}
-
-let game_controller = new game();
-
 function updateGameIndex()
 {
     let match_selection = document.getElementById("matchSelection");
@@ -50,10 +32,12 @@ function updateGameIndex()
         if(game_controller.left_team.score[game_controller.game_index] > game_controller.right_team.score[game_controller.game_index])
         {
             document.getElementById("leftTeamPlayerName").style.backgroundColor="green"; // reset the completetion status
+            document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
         }
         else
         {
             document.getElementById("rightTeamPlayerName").style.backgroundColor="green"; // reset the completetion status
+            document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
         }
     }
     else
