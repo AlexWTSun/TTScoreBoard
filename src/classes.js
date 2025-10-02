@@ -4,6 +4,7 @@ class Team
         this.player1_name = "Name1";
         this.player2_name = "Name2";
         this.score = [0, 0, 0, 0, 0, 0, 0]; // Order: doublex3, player1 x2 , player2 x2
+        this.accumm_points = 0;
     }
 }
 
@@ -27,3 +28,5 @@ class game
 }
 
 let game_controller = new game();
+
+const game_points = [2, 2, 2, 1, 1, 1, 1]; // Change this when double and single game order changes;

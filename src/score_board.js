@@ -66,6 +66,7 @@ function addPointToLeft(point)
             document.getElementById("leftTeamPlayerName").style.backgroundColor="green";
             game_controller.winning_status[game_controller.game_index] = -1; // left win;
             game_controller.game_completion_status[game_controller.game_index] = 1;
+            game_controller.left_team.accumm_points += game_points[game_controller.game_index];
             recorScoreToScoreboard();
             document.getElementById("nextGameButton").style.display="block";
         }
@@ -75,13 +76,18 @@ function addPointToLeft(point)
         game_controller.left_team.score[game_controller.game_index] = Math.max(score, 0);
         leftScore.innerText = game_controller.left_team.score[game_controller.game_index];
         document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
+        if(game_controller.game_completion_status[game_controller.game_index] == 1)
+        {
+            game_controller.left_team.accumm_points -= game_points[game_controller.game_index];
+        }
         game_controller.game_completion_status[game_controller.game_index] = 0; 
         game_controller.winning_status[game_controller.game_index] = 0;
         document.getElementById("nextGameButton").style.display="none";
     }
 
     game_controller.ball_counts = game_controller.right_team.score[game_controller.game_index] + game_controller.left_team.score[game_controller.game_index];
-    if((point > 0 && game_controller.ball_counts % 2 == 0) || (point < 0 && game_controller.ball_counts % 2 == 1) || game_controller.ball_counts >= 20)
+    if((game_controller.game_completion_status[game_controller.game_index] == 0 || (game_controller.game_completion_status[game_controller.game_index] == 1 && point < 0)) &&
+      ((point > 0 && game_controller.ball_counts % 2 == 0) || (point < 0 && game_controller.ball_counts % 2 == 1) || game_controller.ball_counts >= 20))
     {
         changeServe();
     }
@@ -106,7 +112,8 @@ function addPointToRight(point)
             document.getElementById("rightTeamPlayerName").style.backgroundColor="green";
             game_controller.winning_status[game_controller.game_index] = 1;
             game_controller.game_completion_status[game_controller.game_index] = 1;
-            recorScoreToScoreboard()
+            game_controller.right_team.accumm_points += game_points[game_controller.game_index];
+            recorScoreToScoreboard();
             document.getElementById("nextGameButton").style.display="block";
         }
     }
@@ -115,12 +122,17 @@ function addPointToRight(point)
         game_controller.right_team.score[game_controller.game_index] = Math.max(score, 0);
         rightScore.innerText = game_controller.right_team.score[game_controller.game_index];
         document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
+        if(game_controller.game_completion_status[game_controller.game_index] == 1)
+        {
+            game_controller.right_team.accumm_points -= game_points[game_controller.game_index];
+        }
         game_controller.winning_status[game_controller.game_index] = 0;
         game_controller.game_completion_status[game_controller.game_index] = 0; 
     }
 
     game_controller.ball_counts = game_controller.right_team.score[game_controller.game_index] + game_controller.left_team.score[game_controller.game_index];
-    if((point > 0 && game_controller.ball_counts % 2 == 0) || (point < 0 && game_controller.ball_counts % 2 == 1) || game_controller.ball_counts >= 20)
+    if((game_controller.game_completion_status[game_controller.game_index] == 0 || (game_controller.game_completion_status[game_controller.game_index] == 1 && point < 0)) &&
+      ((point > 0 && game_controller.ball_counts % 2 == 0) || (point < 0 && game_controller.ball_counts % 2 == 1) || game_controller.ball_counts >= 20))
     {
         changeServe();
     }

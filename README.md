@@ -1,2 +1,2 @@
 # TTScoreBoard
-Small web display tool for TT Game
+Small web display tool for TT Game. CSI format
