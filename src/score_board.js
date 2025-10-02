@@ -10,7 +10,7 @@ class game
         this.ball_counts = 0;
         this.left_serve = 1;
         this.player_window = 0;
-        this.winning_status = 0; // -1: left win; 1: right win; 0: on-going
+        this.winning_status = [0, 0, 0, 0, 0, 0, 0]; // -1: left win; 1: right win; 0: on-going
     }
 }
 
@@ -20,6 +20,7 @@ function updateGameIndex()
 {
     let match_selection = document.getElementById("matchSelection");
     game_controller.game_index = parseInt(match_selection.options[match_selection.selectedIndex].value, 10) - 1;
+    console.log("game index",game_controller.game_index);
     let left_team_name_text = document.getElementById("leftTeamName");
     let right_team_name_text = document.getElementById("rightTeamName");
     if(game_controller.game_index == 3 || game_controller.game_index == 4)
@@ -80,8 +81,9 @@ function addPointToLeft(point)
         if(score > 10 && (score-game_controller.right_team.score[game_controller.game_index])>=2)
         {
             document.getElementById("leftTeamPlayerName").style.backgroundColor="green";
-            game_controller.winning_status = -1; // left win;
+            game_controller.winning_status[game_controller.game_index] = -1; // left win;
             game_controller.game_completion_status[game_controller.game_index] = 1;
+            recorScoreToScoreboard();
             document.getElementById("nextGameButton").style.display="block";
         }
     }
@@ -91,7 +93,7 @@ function addPointToLeft(point)
         leftScore.innerText = game_controller.left_team.score[game_controller.game_index];
         document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
         game_controller.game_completion_status[game_controller.game_index] = 0; 
-        game_controller.winning_status = 0;
+        game_controller.winning_status[game_controller.game_index] = 0;
         document.getElementById("nextGameButton").style.display="none";
     }
 
@@ -119,8 +121,9 @@ function addPointToRight(point)
         if(score > 10 && (score-game_controller.left_team.score[game_controller.game_index])>=2)
         {
             document.getElementById("rightTeamPlayerName").style.backgroundColor="green";
-            game_controller.winning_status = 1;
+            game_controller.winning_status[game_controller.game_index] = 1;
             game_controller.game_completion_status[game_controller.game_index] = 1;
+            recorScoreToScoreboard()
             document.getElementById("nextGameButton").style.display="block";
         }
     }
@@ -129,7 +132,7 @@ function addPointToRight(point)
         game_controller.right_team.score[game_controller.game_index] = Math.max(score, 0);
         rightScore.innerText = game_controller.right_team.score[game_controller.game_index];
         document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
-        game_controller.winning_status = 0;
+        game_controller.winning_status[game_controller.game_index] = 0;
         game_controller.game_completion_status[game_controller.game_index] = 0; 
     }
 
@@ -173,12 +176,21 @@ function changeServe()
     }
 }
 
+function recorScoreToScoreboard()
+{
+    if(game_controller.game_completion_status[game_controller.game_index] == 1)
+    {
+        let game_id = game_controller.game_index+1;
+        document.getElementById("ScoreRecordT1G"+game_id).innerText = team1.score[game_controller.game_index];
+        document.getElementById("ScoreRecordT2G"+game_id).innerText = team2.score[game_controller.game_index];
+    }
+}
+
 function startNextGame()
 {
     let game_id = game_controller.game_index+1;
     document.getElementById("ScoreRecordT1G"+game_id).innerText = team1.score[game_controller.game_index];
     document.getElementById("ScoreRecordT2G"+game_id).innerText = team2.score[game_controller.game_index];
-    game_controller.game_completion_status[game_controller.game_index] = 1;
 
     game_controller.game_index += 1;
     game_id += 1;
@@ -194,7 +206,6 @@ function startNextGame()
     document.getElementById("nextGameButton").style.display="none";
     document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent";
     document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent";
-    game_controller.winning_status = 0;
     document.getElementById("rightServeMarker").style.display = "none";
     document.getElementById("leftServeMarker").style.display = "inline";
 

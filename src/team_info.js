@@ -71,7 +71,6 @@ function set_team_member_name()
 
     game_controller.game_index = 0;
     game_controller.ball_counts = 0;
-    game_controller.winning_status = 0;
     document.getElementById("rightServeMarker").style.display = "none";
     document.getElementById("leftServeMarker").style.display = "inline";
     let lf = game_controller.left_team.score[game_controller.game_index];
@@ -81,6 +80,7 @@ function set_team_member_name()
     document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
     document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
 
+    console.log("player window: ", game_controller.player_window);
     if(game_controller.player_window == 1)
     {
         BroadcastScore();
