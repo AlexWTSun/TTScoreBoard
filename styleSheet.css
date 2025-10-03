@@ -157,6 +157,10 @@ header
     padding: 0%;
     margin: 0%;
 }
+.scoreDisplayServeMarkFont
+{
+    font-size: 80px;
+}
 .playerview-scoreDisplayBG
 {
     position: fixed; 
@@ -175,4 +179,8 @@ header
     font-size: 210px;
     padding: 0%;
     margin: 0%;
+}
+.playerview-scoreDisplayServeMarkFont
+{
+    font-size: 110px;
 }
