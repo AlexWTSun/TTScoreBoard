@@ -1,0 +1,73 @@
+.playerview-mainBG
+{
+    background-color: rgb(20, 20, 20);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    color: rgb(208, 208, 208);
+}
+.playerview-scoreDisplayBG
+{
+    position: fixed; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%; 
+    height: 50%; 
+    float: left; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%);
+}
+.playerview-scoreDisplayScoreFont
+{
+    font-size: 210px;
+    padding: 0%;
+    margin: 0%;
+}
+.playerview-scoreDisplayServeMarkFont
+{
+    font-size: 110px;
+}
+.playerview-scoreTableBG
+{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width:75%;
+    height: 12%;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, 0%);
+    background-color: rgb(60, 60, 60);
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+th, td
+{
+    border-collapse: collapse;
+    padding: 5px;
+}
+.playerview-scoreTableNameBlock
+{
+    width: 37%;
+    height: 30%;
+}
+.playerview-scoreTableAccumPointBlock
+{
+    width: 14%;
+    height: 30%;
+    background-color: rgb(108, 108, 108);
+}
+.playerview-scoreTableGamePointBlock
+{
+    width: 7%;
+    height: 30%;
+}
+.playerview-scoreTableInnerBorder
+{
+    border-bottom: 1px solid rgb(201, 201, 201);
+}

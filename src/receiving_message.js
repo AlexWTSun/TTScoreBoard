@@ -2,7 +2,7 @@ const channel = new BroadcastChannel("score-board-channel");
 
 channel.onmessage = function(event)
 {
-    //console.log("received data, ", event.data);
+    console.log("received data, ", event.data);
     if(event.data[0] == "score")
     {
         // ["score", left_team_score, right_team_score, left_serve_status, winning_status];
@@ -33,6 +33,33 @@ channel.onmessage = function(event)
         left_team_name_text.innerText=event.data[2];
         right_team_name_text.innerText=event.data[1];
         setWinningTeam(event.data[3]);
+    }
+    else if(event.data[0] == "table-name")
+    {
+        // ["table-name", team1.player1_name, team1.player2_name, team2.player1_name, team2.player2_name]
+        document.getElementById("scoretable-T1name").innerText = event.data[1]+" / "+event.data[2];
+        document.getElementById("scoretable-T2name").innerText = event.data[3]+" / "+event.data[4];
+    }
+    else if(event.data[0] == "table-score")
+    {
+        // ["table-score", gidx, team1.score[gidx], team2.score[gidx], team1.accumm_points, team2.accumm_points]
+        let game_id = event.data[1]+1;
+        let p1 = event.data[2];
+        let p2 = event.data[3];
+        document.getElementById("scoretable-T1Tot").innerText = event.data[4];
+        document.getElementById("scoretable-T2Tot").innerText = event.data[5];
+        document.getElementById("scoretable-T1G"+game_id).innerText = p1;
+        document.getElementById("scoretable-T2G"+game_id).innerText = p2;
+        if(p1 > p2)
+        {
+            document.getElementById("scoretable-T1G"+game_id).style="color:rgb(235,215,0);"
+            document.getElementById("scoretable-T2G"+game_id).style="color:rgb(208,208,208);"
+        }
+        else
+        {
+            document.getElementById("scoretable-T2G"+game_id).style="color:rgb(235,215,0);"
+            document.getElementById("scoretable-T1G"+game_id).style="color:rgb(208,208,208);"
+        }
     }
 }
 

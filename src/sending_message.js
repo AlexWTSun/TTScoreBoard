@@ -20,3 +20,16 @@ function BroadcastTeamName()
     channel.postMessage(message);
     //console.log("send name", message);
 }
+
+function BroadcastScoreTableName()
+{
+    const message=["table-name", team1.player1_name, team1.player2_name, team2.player1_name, team2.player2_name];
+    channel.postMessage(message);
+}
+function BroadcastScoreTablePoints()
+{
+    let gidx = game_controller.game_index;
+    const message=["table-score", gidx, team1.score[gidx], team2.score[gidx], team1.accumm_points, team2.accumm_points];
+    channel.postMessage(message);
+    console.log("send table points", message);
+}

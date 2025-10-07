@@ -19,7 +19,7 @@ function updateGameIndex()
         left_team_name_text.innerText=game_controller.left_team.player1_name + " / " + game_controller.left_team.player2_name;
         right_team_name_text.innerText=game_controller.right_team.player1_name + " / " + game_controller.right_team.player2_name
     }
-
+ 
     let lf = game_controller.left_team.score[game_controller.game_index];
     let rt = game_controller.right_team.score[game_controller.game_index];
     document.getElementById("leftTeamScore").innerText=lf;
@@ -181,6 +181,11 @@ function recorScoreToScoreboard()
         let game_id = game_controller.game_index+1;
         document.getElementById("ScoreRecordT1G"+game_id).innerText = team1.score[game_controller.game_index];
         document.getElementById("ScoreRecordT2G"+game_id).innerText = team2.score[game_controller.game_index];
+
+        if(game_controller.player_window == 1)
+        {
+            BroadcastScoreTablePoints();
+        }
     }
 }
 
@@ -225,4 +230,5 @@ function refreshPlayerView()
 {
     BroadcastScore();
     BroadcastTeamName();
+    BroadcastScoreTableName();
 }

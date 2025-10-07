@@ -72,6 +72,7 @@ function set_team_member_name()
     {
         BroadcastScore();
         BroadcastTeamName();
+        BroadcastScoreTableName();
     }
 }
 

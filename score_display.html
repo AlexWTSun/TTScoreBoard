@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang = "en">
     <link rel="stylesheet" href="styleSheet.css">
+    <link rel="stylesheet" href="playerview_style.css">
     
-    <body
-        style="background-color: rgb(20, 20, 20); display: flex; flex-direction: column; align-items: center; color: rgb(208, 208, 208);">
+    <body class="playerview-mainBG">
         <script src="src/team_info.js"></script>
         <script src="src/score_board.js"></script>
         <script src="src/receiving_message.js"></script>
@@ -44,6 +44,49 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="playerview-scoreTableBG">
+            <!-- total score record -->
+             <table style="width:100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th class="playerview-scoreTableNameBlock"><!---Name, Empty header--></th>
+                        <th class="playerview-scoreTableAccumPointBlock", style="background-color: rgb(60, 60, 60);"><!-- Accumulated Point, empty header--></th>
+                        <th class="playerview-scoreTableGamePointBlock"> DB1 </th>
+                        <th class="playerview-scoreTableGamePointBlock"> DB2 </th>
+                        <th class="playerview-scoreTableGamePointBlock"> DB3 </th>
+                        <th class="playerview-scoreTableGamePointBlock"> P1 SG1 </th>
+                        <th class="playerview-scoreTableGamePointBlock"> P1 SG2 </th>
+                        <th class="playerview-scoreTableGamePointBlock"> P2 SG1 </th>
+                        <th class="playerview-scoreTableGamePointBlock"> P2 SG2 </th>
+                    </tr>    
+                </thead>
+                <tbody>
+                    <tr>
+                        <th id="scoretable-T1name" class="playerview-scoreTableNameBlock playerview-scoreTableInnerBorder">T1 Name1/Name2</th>
+                        <th id="scoretable-T1Tot" class="playerview-scoreTableAccumPointBlock playerview-scoreTableInnerBorder">0</th>
+                        <th id="scoretable-T1G1" class="playerview-scoreTableGamePointBlock playerview-scoreTableInnerBorder"> 0 </th>
+                        <th id="scoretable-T1G2" class="playerview-scoreTableGamePointBlock playerview-scoreTableInnerBorder"> 0 </th>
+                        <th id="scoretable-T1G3" class="playerview-scoreTableGamePointBlock playerview-scoreTableInnerBorder"> 0 </th>
+                        <th id="scoretable-T1G4" class="playerview-scoreTableGamePointBlock playerview-scoreTableInnerBorder"> 0 </th>
+                        <th id="scoretable-T1G5" class="playerview-scoreTableGamePointBlock playerview-scoreTableInnerBorder"> 0 </th>
+                        <th id="scoretable-T1G6" class="playerview-scoreTableGamePointBlock playerview-scoreTableInnerBorder"> 0 </th>
+                        <th id="scoretable-T1G7" class="playerview-scoreTableGamePointBlock playerview-scoreTableInnerBorder"> 0 </th>
+                    </tr>
+                    <tr>
+                        <th id="scoretable-T2name" class="playerview-scoreTableNameBlock">T2 Name1/Name2</th>
+                        <th id="scoretable-T2Tot" class="playerview-scoreTableAccumPointBlock">0</th>
+                        <th id="scoretable-T2G1" class="playerview-scoreTableGamePointBlock"> 0 </th>
+                        <th id="scoretable-T2G2" class="playerview-scoreTableGamePointBlock"> 0 </th>
+                        <th id="scoretable-T2G3" class="playerview-scoreTableGamePointBlock"> 0 </th>
+                        <th id="scoretable-T2G4" class="playerview-scoreTableGamePointBlock"> 0 </th>
+                        <th id="scoretable-T2G5" class="playerview-scoreTableGamePointBlock"> 0 </th>
+                        <th id="scoretable-T2G6" class="playerview-scoreTableGamePointBlock"> 0 </th>
+                        <th id="scoretable-T2G7" class="playerview-scoreTableGamePointBlock"> 0 </th>
+                    </tr>
+                </tbody>
+             </table>
         </div>
     </body>
     
