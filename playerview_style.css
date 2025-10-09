@@ -37,12 +37,12 @@
     justify-content: center;
     float: left;
     width:75%;
-    height: 12%;
+    height: 18%;
     left: 50%;
     top: 65%;
     transform: translate(-50%, 0%);
     background-color: rgb(60, 60, 60);
-    margin-top: 5px;
+    margin-top: 2px;
     border-radius: 10px;
     border: 1px solid white;
 }
@@ -53,19 +53,22 @@ th, td
 }
 .playerview-scoreTableNameBlock
 {
-    width: 37%;
-    height: 30%;
+    width: 30%;
+    height: 33%;
+    font-size: 28px;
 }
 .playerview-scoreTableAccumPointBlock
 {
     width: 14%;
-    height: 30%;
+    height: 33%;
     background-color: rgb(108, 108, 108);
+    font-size: 28px;
 }
 .playerview-scoreTableGamePointBlock
 {
-    width: 7%;
-    height: 30%;
+    width: 8%;
+    height: 33%;
+    font-size: 28px;
 }
 .playerview-scoreTableInnerBorder
 {
