@@ -16,7 +16,7 @@
     height: 50%; 
     float: left; 
     left: 50%; 
-    top: 50%; 
+    top: 40%; 
     transform: translate(-50%, -50%);
 }
 .playerview-scoreDisplayScoreFont
@@ -39,7 +39,7 @@
     width:75%;
     height: 12%;
     left: 50%;
-    top: 75%;
+    top: 65%;
     transform: translate(-50%, 0%);
     background-color: rgb(60, 60, 60);
     margin-top: 5px;
