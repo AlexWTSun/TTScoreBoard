@@ -68,8 +68,12 @@ function set_team_member_name()
     document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
     document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
 
+    game_controller.left_team.accum_points = 0;
+    game_controller.right_team.accum_points = 0;
+
     if(game_controller.player_window == 1)
     {
+        ResetPlayerView();
         BroadcastScore();
         BroadcastTeamName();
         BroadcastScoreTableName();

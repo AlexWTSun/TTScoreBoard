@@ -42,7 +42,7 @@ channel.onmessage = function(event)
     }
     else if(event.data[0] == "table-score")
     {
-        // ["table-score", gidx, team1.score[gidx], team2.score[gidx], team1.accumm_points, team2.accumm_points]
+        // ["table-score", gidx, team1.score[gidx], team2.score[gidx], team1.accum_points, team2.accum_points]
         let game_id = event.data[1]+1;
         let p1 = event.data[2];
         let p2 = event.data[3];
@@ -59,6 +59,18 @@ channel.onmessage = function(event)
         {
             document.getElementById("scoretable-T2G"+game_id).style="color:rgb(235,215,0);"
             document.getElementById("scoretable-T1G"+game_id).style="color:rgb(208,208,208);"
+        }
+    }
+    else if(event.data[0] == "reset")
+    {
+        document.getElementById("scoretable-T1Tot").innerText = 0;
+        document.getElementById("scoretable-T2Tot").innerText = 0;
+        for(var ii = 1; ii < 8; ii++)
+        {
+            document.getElementById("scoretable-T1G"+ii).innerText = 0;
+            document.getElementById("scoretable-T2G"+ii).innerText = 0;
+            document.getElementById("scoretable-T1G"+ii).style = "color:rgb(208,208,208);";
+            document.getElementById("scoretable-T2G"+ii).style = "color:rgb(208,208,208);";
         }
     }
 }

@@ -69,7 +69,7 @@ function addPointToLeft(point)
             document.getElementById("leftTeamPlayerName").style.backgroundColor="green";
             game_controller.winning_status[game_controller.game_index] = -1; // left win;
             game_controller.game_completion_status[game_controller.game_index] = 1;
-            game_controller.left_team.accumm_points += game_points[game_controller.game_index];
+            game_controller.left_team.accum_points += game_points[game_controller.game_index];
             recorScoreToScoreboard();
             document.getElementById("nextGameButton").style.display="block";
         }
@@ -81,7 +81,7 @@ function addPointToLeft(point)
         document.getElementById("leftTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
         if(game_controller.game_completion_status[game_controller.game_index] == 1)
         {
-            game_controller.left_team.accumm_points -= game_points[game_controller.game_index];
+            game_controller.left_team.accum_points -= game_points[game_controller.game_index];
         }
         game_controller.game_completion_status[game_controller.game_index] = 0; 
         game_controller.winning_status[game_controller.game_index] = 0;
@@ -115,7 +115,7 @@ function addPointToRight(point)
             document.getElementById("rightTeamPlayerName").style.backgroundColor="green";
             game_controller.winning_status[game_controller.game_index] = 1;
             game_controller.game_completion_status[game_controller.game_index] = 1;
-            game_controller.right_team.accumm_points += game_points[game_controller.game_index];
+            game_controller.right_team.accum_points += game_points[game_controller.game_index];
             recorScoreToScoreboard();
             document.getElementById("nextGameButton").style.display="block";
         }
@@ -127,7 +127,7 @@ function addPointToRight(point)
         document.getElementById("rightTeamPlayerName").style.backgroundColor="transparent"; // reset the completetion status
         if(game_controller.game_completion_status[game_controller.game_index] == 1)
         {
-            game_controller.right_team.accumm_points -= game_points[game_controller.game_index];
+            game_controller.right_team.accum_points -= game_points[game_controller.game_index];
         }
         game_controller.winning_status[game_controller.game_index] = 0;
         game_controller.game_completion_status[game_controller.game_index] = 0; 

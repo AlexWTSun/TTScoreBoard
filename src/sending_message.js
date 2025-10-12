@@ -29,7 +29,12 @@ function BroadcastScoreTableName()
 function BroadcastScoreTablePoints()
 {
     let gidx = game_controller.game_index;
-    const message=["table-score", gidx, team1.score[gidx], team2.score[gidx], team1.accumm_points, team2.accumm_points];
+    const message=["table-score", gidx, team1.score[gidx], team2.score[gidx], team1.accum_points, team2.accum_points];
     channel.postMessage(message);
-    console.log("send table points", message);
+    //console.log("send table points", message);
+}
+function ResetPlayerView()
+{
+    const message=["reset"];
+    channel.postMessage(message);
 }
