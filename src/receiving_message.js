@@ -55,9 +55,14 @@ channel.onmessage = function(event)
             document.getElementById("scoretable-T1G"+game_id).style="color:rgb(235,215,0);"
             document.getElementById("scoretable-T2G"+game_id).style="color:rgb(208,208,208);"
         }
-        else
+        else if(p1 < p2)
         {
             document.getElementById("scoretable-T2G"+game_id).style="color:rgb(235,215,0);"
+            document.getElementById("scoretable-T1G"+game_id).style="color:rgb(208,208,208);"
+        }
+        else
+        {
+            document.getElementById("scoretable-T2G"+game_id).style="color:rgb(208,208,208);"
             document.getElementById("scoretable-T1G"+game_id).style="color:rgb(208,208,208);"
         }
     }

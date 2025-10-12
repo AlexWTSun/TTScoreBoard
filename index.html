@@ -28,7 +28,7 @@
                 <div id = "leftTeamPlayerName", class = "main-ScoreDisplayNameBlock", style="text-align: right;">
                     <p class="scoreDisplayNameFont", id="leftTeamName">&nbsp;/&nbsp;</p>
                 </div>
-                <div style="width: 10%; height: 15%; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 16%; height: 15%; display: flex; align-items: top; justify-content: center; text-align: center;">
                     <div>
                         <button id="flipSideButton", class="smallButton", onclick="flipSide()">Flip Side</button>
                         <button id="changeServe", class="smallButton", onclick="changeServe()">Flip Serve</button>
@@ -43,7 +43,7 @@
                     <div style="width:60%; text-align: right"><p id="leftServeMarker", class="scoreDisplayServeMarkFont">&#9679;</p></div>
                     <div style="width:40%; text-align: right;", onclick="addPointToLeft(1)"><p class="scoreDisplayScoreFont", id="leftTeamScore">0</p></div>
                 </div>
-                <div class = "main-ScoreDisplayScoreBlock", style="width: 10%;">
+                <div class = "main-ScoreDisplayScoreBlock", style="width: 16%;">
                     <!--Just A Colon-->
                     <div style="width: 100%; text-align: center;"><p class="scoreDisplayScoreFont">:</p></div>
                 </div>
@@ -51,20 +51,20 @@
                     <div style="width:40%; text-align: left;", onclick="addPointToRight(1)"><p class="scoreDisplayScoreFont", id="rightTeamScore">0</p></div>
                     <div style="width:60%; text-align: left;"> <p id = "rightServeMarker", style="display: none;", class="scoreDisplayServeMarkFont">&#9679;</p></div>
                 </div>
-                <div style="width: 45%; height: 15%; padding: 2%; display: flex; justify-content: right; align-items: center;">
+                <div style="width: 42%; height: 15%; padding: 2%; display: flex; justify-content: right; align-items: center;">
                     <!--left buttons-->
                     <div>
                         <button id="leftAddButton", class="smallButton", onclick="addPointToLeft(1)"> Add </button>
                         <button id="leftMinusButton", class="smallButton", onclick="addPointToLeft(-1)"> Subtract</button>
                     </div>
                 </div>
-                <div style="width: 10%; height: 15%; padding: 0%; margin: 0%; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 16%; height: 15%; padding: 0%; margin: 0%; display: flex; align-items: center; justify-content: center;">
                     <!--place holder-->
                     <div>
                         <button id="nextGameButton", class="smallButton", style="display: none;", onclick="startNextGame()">Next Game</button>
                     </div>
                 </div>
-                <div style="width: 45%; height: 15%; padding: 2%; display: flex; justify-content: left; align-items: center;">
+                <div style="width: 42%; height: 15%; padding: 2%; display: flex; justify-content: left; align-items: center;">
                     <!--right buttons-->
                     <div>
                         <button id="rightAddButton", class="smallButton", onclick="addPointToRight(1)"> Add </button>
@@ -82,7 +82,8 @@
                 <div id="leftScoreRecord">
                 </div>
                 <div id="scoreRecordLabel", style="width: 10%; text-align: center; background-color: azure;">
-                    <p class="scoreRecorderText", style="margin: 1em">&nbsp;</p>
+                    <!--<p class="scoreRecorderText", style="margin: 1em">&nbsp;</p>-->
+                    <button id="saveScoreButton", style="margin: 1em">Save</button>
                     <p class="scoreRecorderText"> Double 1 </p>
                     <p class="scoreRecorderText"> Double 2</p>
                     <p class="scoreRecorderText"> Double 3</p>

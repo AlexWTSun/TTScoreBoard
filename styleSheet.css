@@ -22,15 +22,16 @@ header
     margin-left: auto;
     margin-right: auto;
 }
-.smallButtomn
+.smallButton
 {
     display: block;
-    height: 20px;
-    width: 100px;
+    height: 23px;
+    width: 80px;
     font-size: 14px;
     text-align: center;
-    background-color: gray;
+    background-color: rgb(217, 217, 217);
     margin: 0 auto;
+    display: inline-block;
 }
 .nameInputBlock
 {
@@ -124,14 +125,14 @@ header
 }
 .main-ScoreDisplayNameBlock
 {
-    width: 45%; 
+    width: 42%; 
     height: 15%; 
     padding: 1%; 
     margin: 0%;
 }
 .main-ScoreDisplayScoreBlock
 {
-    width: 45%; 
+    width: 42%; 
     height: 60%; 
     padding: 1%; 
     margin: 0%;
@@ -140,7 +141,7 @@ header
 }
 .main-ScoreDisplayButtonBlock
 {
-    width: 45%; 
+    width: 42%; 
     height: 15%; 
     padding: 1%; 
     margin: 0%;

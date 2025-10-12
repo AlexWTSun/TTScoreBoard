@@ -184,7 +184,7 @@ function recorScoreToScoreboard()
 
         if(game_controller.player_window == 1)
         {
-            BroadcastScoreTablePoints();
+            BroadcastScoreTablePoints(game_controller.game_index);
         }
     }
 }
@@ -231,4 +231,5 @@ function refreshPlayerView()
     BroadcastScore();
     BroadcastTeamName();
     BroadcastScoreTableName();
+    refreshScoreTable();
 }
