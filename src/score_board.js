@@ -197,8 +197,11 @@ function startNextGame()
 
     game_controller.game_index += 1;
     game_id += 1;
-    game_controller.game_index = Math.min(game_controller.game_index, 6);
-    game_id = Math.min(game_id, 7);
+    if(game_controller.game_index > 6)
+    {
+        game_controller.game_index = 0;
+        game_id = 1;
+    }
     let match_selection = document.getElementById("matchSelection");
     match_selection.value = game_id.toString();
     updateGameIndex();
@@ -232,4 +235,41 @@ function refreshPlayerView()
     BroadcastTeamName();
     BroadcastScoreTableName();
     refreshScoreTable();
+}
+
+function saveToFile()
+{
+    const currentDate = new Date();
+    let filename=currentDate.toLocaleDateString()+"_"+team1.player1_name+"_"+team1.player2_name+"-"+team2.player1_name+"_"+team2.player2_name+".txt";
+    //let filepath = "/usr/people/wsun/TT_gameboard"+filename; // make this an input
+    const namewidth = 20;
+    const scorewidth = 8;
+    let text = "Player1".padEnd(namewidth)+ "Player2".padEnd(namewidth)+"Total".padEnd(scorewidth)+"DB1".padEnd(scorewidth) +
+            "DB2".padEnd(scorewidth) + "DB3".padEnd(scorewidth) + "P1SG1".padEnd(scorewidth) + "P1SG2".padEnd(scorewidth) + 
+            "P2SG1".padEnd(scorewidth) + "P2SG2".padEnd(scorewidth) + "\n";
+    text = text + team1.player1_name.padEnd(namewidth) + team1.player2_name.padEnd(namewidth) + team1.accum_points.toString().padEnd(scorewidth);
+    for(let gidx = 0; gidx<7;gidx++)
+    {
+        text = text + team1.score[gidx].toString().padEnd(scorewidth);
+    }
+    text = text + "\n" + team2.player1_name.padEnd(namewidth) + team2.player2_name.padEnd(namewidth)+ team2.accum_points.toString().padEnd(scorewidth);
+    for(let gidx = 0; gidx<7;gidx++)
+    {
+        text = text + team2.score[gidx].toString().padEnd(scorewidth);
+    }
+    downloadTextFile(filename, text);
+}
+
+function downloadTextFile(filename, text) 
+{
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a); // Append to body to make it clickable
+    a.click(); // Programmatically click the link to trigger download
+    document.body.removeChild(a); // Clean up
+    console.log(text);
+    URL.revokeObjectURL(url); // Release the object URL
 }
